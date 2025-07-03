@@ -70,3 +70,24 @@ With the following link you can view your scripts in action:
 http://localhost:7900/?autoconnect=1&resize=scale&password=secret
 
 > The same applies for scripts running with InfraSonar, except replace `localhost` with your appliance server address.
+
+
+## Password and/or Secret
+
+For a password or secret in your script, use the following:
+
+```python
+from infrasonar_selenium import get_password, get_secret
+password = get_password()
+secret = get_secret()
+```
+
+Next, start the script:
+
+```bash
+PASSWORD=myPassword SECRET=mySecret python mytest.py
+```
+
+For InfraSonar, you can provide the probe with the `password` and/or `secret`.
+InfraSonar encrypts those and they will never leave your appliance.
+
