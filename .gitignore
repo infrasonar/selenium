@@ -1,0 +1,13 @@
+# VSCode
+.vscode
+
+# Python
+*.pyc
+__pycache__/
+*egg-info/
+
+# Test folder
+testing/
+
+# Target
+target/

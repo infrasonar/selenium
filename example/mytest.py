@@ -1,26 +1,3 @@
-# InfraSonar Selenium Test Suite
-
-## Requirements
-
-* Python (3.12 or higher)
-* Docker
-
-## Usage
-
-Make sure the lib is installed:
-```bash
-pip install infrasonar_selenium
-```
-
-`
-Start Selenium:
-```bash
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-chrome
-```
-
-Write a test: _(for example, save the following to `mytest.py`)_
-
-```python
 from infrasonar_selenium import TestBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -55,17 +32,3 @@ export = MyTest
 
 if __name__ == '__main__':
     MyTest().print_run()  # Prints the output
-```
-
-Start the test:
-```bash
-python mytest.py
-```
-
-
-With the following link you can view your scripts in action:
-
-http://localhost:7900/?autoconnect=1&resize=scale&password=secret
-
-> The same applies for scripts running with InfraSonar, except replace `localhost` with your appliance server address.
-
