@@ -67,4 +67,3 @@ With the following link you can view your scripts in action:
 http://localhost:7900/?autoconnect=1&resize=scale&password=secret
 
 > The same applies for scripts running with InfraSonar, except replace `localhost` with your appliance server address.
-
