@@ -1,3 +1,6 @@
+[![CI](https://github.com/infrasonar/selenium/workflows/CI/badge.svg)](https://github.com/infrasonar/selenium/actions)
+[![Release Version](https://img.shields.io/github/release/infrasonar/selenium)](https://github.com/infrasonar/selenium/releases)
+
 # InfraSonar Selenium Test Suite
 
 ## Requirements

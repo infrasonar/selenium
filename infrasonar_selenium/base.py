@@ -50,7 +50,7 @@ class TestBase(abc.ABC):
         finally:
             driver.quit()
         return {
-            'name': name or  cls.__name__,  # str
+            'name': name or cls.__name__,  # str
             'test': cls.__name__,  # str
             'url': cls.url,  # str
             'success': success,  # int
