@@ -35,30 +35,48 @@ class TestBase(abc.ABC):
                 command_executor="http://localhost:4444")
 
         t0 = time.time()
-        success = True
-        error = None
+        retries = 2
 
         try:
-            driver.get(cls.url)
-            cls.test(driver)
-        except WebDriverException as e:
-            success = False
-            error = e.msg or type(e).__name__
-        except Exception as e:
-            success = False
-            error = str(e) or type(e).__name__
+            while True:
+                try:
+                    driver.get(cls.url)
+                    cls.test(driver)
+
+                    success = True
+                    error = None
+                    break
+                except WebDriverException as e:
+                    if retries:
+                        retries -= 1
+                        time.sleep(1.0)
+                        try:
+                            # reset browser to restart clean
+                            driver.delete_all_cookies()
+                            driver.get("about:blank")
+                        except Exception:
+                            pass
+                        continue
+                    success = False
+                    error = e.msg or type(e).__name__
+                    break
+                except Exception as e:
+                    success = False
+                    error = str(e) or type(e).__name__
+                    break
+
+            return {
+                'name': name or cls.__name__,  # str
+                'test': cls.__name__,  # str
+                'url': cls.url,  # str
+                'success': success,  # int
+                'error': error,  # str?
+                'duration': time.time() - t0,  # float
+                'description': cls.description,  # str
+                'version': cls.version,  # str
+            }
         finally:
             driver.quit()
-        return {
-            'name': name or cls.__name__,  # str
-            'test': cls.__name__,  # str
-            'url': cls.url,  # str
-            'success': success,  # int
-            'error': error,  # str?
-            'duration': time.time() - t0,  # float
-            'description': cls.description,  # str
-            'version': cls.version,  # str
-        }
 
     @classmethod
     def print_run(cls, name: str | None = None,
