@@ -7,7 +7,7 @@ twine upload --repository pypi dist/infrasonar_selenium-x.x.x.tar.gz
 """
 from setuptools import setup, find_packages
 
-version = '1.0.2'
+version = '1.0.3'
 
 try:
     with open('README.md', 'r') as f:
@@ -37,10 +37,11 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Linguistic'
