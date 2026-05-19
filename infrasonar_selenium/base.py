@@ -5,6 +5,9 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
 
+MAX_RETRIES = 2
+
+
 class TestBase(abc.ABC):
     url: str
     description: str
@@ -35,7 +38,7 @@ class TestBase(abc.ABC):
                 command_executor="http://localhost:4444")
 
         t0 = time.time()
-        retries = 2
+        retries = MAX_RETRIES
 
         try:
             while True:
@@ -74,6 +77,7 @@ class TestBase(abc.ABC):
                 'duration': time.time() - t0,  # float
                 'description': cls.description,  # str
                 'version': cls.version,  # str
+                'retries': MAX_RETRIES-retries,  # int
             }
         finally:
             driver.quit()
