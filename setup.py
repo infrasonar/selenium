@@ -2,8 +2,8 @@
 local installation: pip install -e .
 
 python -m build
-twine upload --repository pypitest dist/infrasonar_selenium-x.x.x.tar.gz
-twine upload --repository pypi dist/infrasonar_selenium-x.x.x.tar.gz
+twine upload --repository pypitest dist/infrasonar_selenium-x.x.x*
+twine upload --repository pypi dist/infrasonar_selenium-x.x.x*
 """
 from setuptools import setup, find_packages
 
