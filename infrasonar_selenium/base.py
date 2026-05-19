@@ -77,7 +77,7 @@ class TestBase(abc.ABC):
                 'duration': time.time() - t0,  # float
                 'description': cls.description,  # str
                 'version': cls.version,  # str
-                'retries': MAX_RETRIES-retries,  # int
+                'connection_retries': MAX_RETRIES-retries,  # int
             }
         finally:
             driver.quit()
