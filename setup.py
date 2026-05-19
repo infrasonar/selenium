@@ -7,7 +7,7 @@ twine upload --repository pypi dist/infrasonar_selenium-x.x.x*
 """
 from setuptools import setup, find_packages
 
-version = '1.0.3'
+version = '1.0.4'
 
 try:
     with open('README.md', 'r') as f:
