@@ -1,7 +1,7 @@
 """setup.py
 local installation: pip install -e .
 
-python setup.py sdist
+python -m build
 twine upload --repository pypitest dist/infrasonar_selenium-x.x.x.tar.gz
 twine upload --repository pypi dist/infrasonar_selenium-x.x.x.tar.gz
 """
